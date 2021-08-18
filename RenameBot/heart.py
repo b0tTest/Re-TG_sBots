@@ -20,7 +20,7 @@ async def _rename(bot: Client, msg: Message):
     try:
         new_name_message = await bot.ask(
             msg.chat.id,
-            "What should be the new name ? \n\n[To cancel send `/cancel`]",
+            "What should be the new name ? \n\n[To cancel send /cancel]",
             filters=filters.user(msg.from_user.id) & filters.text,
         )
         # Cancel 1
@@ -40,7 +40,7 @@ async def _rename(bot: Client, msg: Message):
                 new_name = new_name + "." + extension
         surely_question = await bot.send_message(
             msg.chat.id,
-            f"Are you sure that '`{new_name}`' should be the new name ? \n\nIf yes, reply with 'y' or 'yes'. \nIf no, reply with 'n' or 'no'. New name will be asked again. \nTo cancel send `/cancel`"
+            f"Are you sure that '`{new_name}`' should be the new name ? \n\nIf yes, reply with 'y' or 'yes'. \nIf no, reply with 'n' or 'no'. New name will be asked again. \nTo cancel send /cancel"
             f"\n\n[To prevent spelling/typing mistakes.]"
         )
         surely = await bot.listen(msg.chat.id, timeout=300, filters=filters.user(msg.from_user.id) & filters.text)
@@ -87,7 +87,7 @@ async def _rename(bot: Client, msg: Message):
         await uploading.delete()
     except Exception as e:
         await msg.reply(
-            f"Error : {e} \n\nTry Again and if still doesn't work then forward this message to @StarkBots !")
+            f"Error : {e} \n\nTry Again and if still doesn't work then Try With my Other BotS !")
     finally:
         q = SESSION.query(Users).get(msg.from_user.id)
         q.running = False
